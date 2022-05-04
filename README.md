@@ -11,12 +11,12 @@ Apple Silicon(aarch64)にも対応しているため、[Multipass](https://multi
 
 ### Others
 
-- [ansible-isucon](https://github.com/matsuu/ansible-isucon)
-- [aws-isucon](https://github.com/matsuu/aws-isucon)
-- [docker-isucon](https://github.com/matsuu/docker-isucon)
-- [vagrant-isucon](https://github.com/matsuu/vagrant-isucon)
-- [oci-arm-isucon](https://github.com/matsuu/oci-arm-isucon)
-- [wsl-isucon](https://github.com/matsuu/wsl-isucon)
+- [matsuu/ansible-isucon](https://github.com/matsuu/ansible-isucon)
+- [matsuu/aws-isucon](https://github.com/matsuu/aws-isucon)
+- [matsuu/docker-isucon](https://github.com/matsuu/docker-isucon)
+- [matsuu/oci-arm-isucon](https://github.com/matsuu/oci-arm-isucon)
+- [matsuu/vagrant-isucon](https://github.com/matsuu/vagrant-isucon)
+- [matsuu/wsl-isucon](https://github.com/matsuu/wsl-isucon)
 
 ## License
 

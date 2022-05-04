@@ -8,24 +8,25 @@ isucon11予選とほぼ同じ環境を構築するためのcloud-configです。
 
 ### Multipassでの利用方法
 
-* [Multipass](https://multipass.run/)実行環境を用意する
-* このリポジトリ内の `isucon11q.cfg` を手元に用意する
-* 以下を実行する
+* [Multipass](https://multipass.run/)実行環境を用意します
+* このリポジトリ内の `isucon11q.cfg` を手元に用意します
+* 以下を実行します
   ```sh
   multipass launch --name isucon11q --cpus 2 --disk 8G --mem 4G --cloud-init isucon11q.cfg 20.04
   ```
-* cloud-initは時間がかかるためタイムアウトとなるがバックグラウンドで構築は行われている。ログインする。
+  * cloud-initは時間がかかるためタイムアウトとなるもののバックグラウンドで構築は行われています
+* ログインします
   ```sh
   multipass shell isucon11q
   ```
-* 進捗確認は以下のコマンドで。
+* 進捗確認は以下のコマンドで確認できます
   ```sh
   sudo tail -f /var/log/cloud-init-output.log
   ```
 
 ## Bench
 
-* 構築が終わったらベンチマークを実行する
+* 構築が終わったらベンチマークを実行します
   ```sh
   sudo -i -u isucon
   cd bench
@@ -44,11 +45,20 @@ isucon11予選とほぼ同じ環境を構築するためのcloud-configです。
 
 ## FAQ
 
+### 途中でエラーが発生した
+
+スリープモードなどの影響で失敗した場合は以下で再試行ができます。
+
+```sh
+sudo /var/lib/cloud/instance/scripts/runcmd
+```
+
 ### プログラムの動かし方がわからない
 
 以下をご確認ください。
 
-- [ISUCON11予選問題](https://github.com/isucon/isucon11-qualify)
+* [ISUCON11 予選当日マニュアル](https://github.com/isucon/isucon11-qualify/blob/main/docs/manual.md)
+* [ISUCON11 予選リポジトリ](https://github.com/isucon/isucon11-qualify)
 
 ### Multipassで動作確認ができない
 
@@ -58,7 +68,7 @@ isucon11予選とほぼ同じ環境を構築するためのcloud-configです。
 multipass info isucon11q
 ```
 
-ブラウザから `https://表示されたIPアドレス/` にアクセスしてみてください。
+ブラウザから `https://表示されたIPアドレス/` にアクセスしてみてください。自己署名証明書のためブラウザでエラーが発生します。証明書は `/etc/nginx/certificates/tls-cert.pem` にあるので手元の証明書ストアに登録することで回避できるはずです。
 
 ### Multipassで作成した環境を削除したい
 
