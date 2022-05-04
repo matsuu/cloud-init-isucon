@@ -68,6 +68,6 @@ multipass delete isucon11q
 multipass purge
 ```
 
-### cloud-initの環境で試したい
+### cloud-init以外の環境で試したい
 
 [matsuu/ansible-isucon](https://github.com/matsuu/ansible-isucon)をご利用ください。
