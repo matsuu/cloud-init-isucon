@@ -9,6 +9,7 @@ Apple Silicon(aarch64)にも対応しているため、[Multipass](https://multi
 
 ### cloud-config
 
+- [ISUCON10予選](https://github.com/matsuu/cloud-init-isucon/tree/main/isucon10q)
 - [ISUCON11予選](https://github.com/matsuu/cloud-init-isucon/tree/main/isucon11q)
 
 サーバ内の構築にはAnsibleを使っています。Ansibleのplaybookのみ必要な場合は[matsuu/ansible-isucon](https://github.com/matsuu/ansible-isucon)をどうぞ。
