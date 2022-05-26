@@ -24,15 +24,3 @@ cloud-initに対応した環境にて isucon11-prior.cfg を使いサーバを�
 $ sudo su - isucon
 $ ./bin/benchmarker 
 ```
-
-
-
-
-
-
-
-
-
-
-
-
