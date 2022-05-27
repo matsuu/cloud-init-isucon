@@ -14,6 +14,7 @@ Apple Silicon(aarch64)にも対応しているため、[Multipass](https://multi
   * [ISUCON11予選](https://github.com/matsuu/cloud-init-isucon/tree/main/isucon11q)
 * 非公式
   * [Pixiv社内ISUCON2016](https://github.com/matsuu/cloud-init-isucon/tree/main/private-isu)
+  * [ISUCON11事前講習](https://github.com/matsuu/cloud-init-isucon/tree/main/isucon11-prior)
   * [Kayac社内ISUCON2022](https://github.com/matsuu/cloud-init-kayac-isucon-2022)
 
 サーバ内の構築にはAnsibleを使っています。Ansibleのplaybookのみ必要な場合は[matsuu/ansible-isucon](https://github.com/matsuu/ansible-isucon)をどうぞ。

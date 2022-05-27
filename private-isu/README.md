@@ -16,7 +16,26 @@ catatsuy/private-isuの環境を構築するためのcloud-configです。
 
 cloud-initに対応した環境にて、アプリケーションサーバをapp.cfg、ベンチマーカーをbenchmarker.cfgにて構築します。
 
-### Bench
+### Multipassでの利用方法
+
+* [Multipass](https://multipass.run/)実行環境を用意します
+* このリポジトリ内の `standalone.cfg` を手元に用意します
+* 以下を実行します
+  ```sh
+  multipass launch --name private-isu --cpus 2 --disk 16G --mem 4G --cloud-init standalone.cfg 20.04
+  ```
+  * cpus, disk, memoryは必要に応じて増減させてください
+  * cloud-initは時間がかかるためタイムアウトとなるもののバックグラウンドで構築は行われています
+* ログインします
+  ```sh
+  multipass shell private-isu
+  ```
+* 進捗確認は以下のコマンドで確認できます
+  ```sh
+  sudo tail -f /var/log/cloud-init-output.log
+  ```
+
+## Bench
 
 構築が終わったらベンチマークを実行します
 
