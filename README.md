@@ -19,6 +19,44 @@ Apple Silicon(aarch64)にも対応しているため、[Multipass](https://multi
 
 サーバ内の構築にはAnsibleを使っています。Ansibleのplaybookのみ必要な場合は[matsuu/ansible-isucon](https://github.com/matsuu/ansible-isucon)をどうぞ。
 
+## Usage
+
+### Multipassでの利用方法
+
+* [Multipass](https://multipass.run/)実行環境を用意します
+  * macOSユーザーは[Homebrew](https://brew.sh/)を使ってインストール可能です
+  ```sh
+  brew install multipass
+  ```
+  * Windowsユーザーは[アプリ インストーラー](https://apps.microsoft.com/store/detail/app-installer/9NBLGGH4NNS1)を使ってインストール可能です
+  ```powershell
+  winget.exe install Multipass
+  ```
+* このリポジトリ内のcfgファイルを手元に用意します
+* cloud-initを使って起動します(isucon11qの例)
+  ```sh
+  multipass launch --name isucon11q --cpus 2 --disk 16G --mem 4G --cloud-init isucon11q.cfg 20.04
+  ```
+  * cpus, disk, memoryは必要に応じて増減させてください
+  * 末尾の `20.04` はUbuntuのバージョンです
+  * cloud-initは時間がかかるため以下のようなメッセージが表示される場合がありますが、バックグラウンドで構築は継続しています
+    ```
+    launch failed: The following errors occurred:
+    timed out waiting for initialization to complete
+    ```
+* ログインします
+  ```sh
+  multipass shell isucon11q
+  ```
+  * 進捗は以下のコマンドで確認できます
+    ```sh
+    sudo tail -f /var/log/cloud-init-output.log
+    ```
+* 環境の削除は `delete --purge` です
+  ```sh
+  multipass delete --purge isucon11q
+  ```
+
 ## Others
 
 * [matsuu/ansible-isucon](https://github.com/matsuu/ansible-isucon)
