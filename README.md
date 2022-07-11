@@ -36,7 +36,7 @@ Apple Silicon(aarch64)にも対応しているため、[Multipass](https://multi
 * このリポジトリ内のcfgファイルを手元に用意します
 * cloud-initを使って起動します(isucon11qの例)
   ```sh
-  multipass launch --name isucon11q --cpus 2 --disk 16G --mem 4G --cloud-init isucon11q.cfg 20.04
+  multipass launch --name isucon11q --cpus 2 --disk 16G --mem 4G --timeout 60 --cloud-init isucon11q.cfg 20.04
   ```
   * cpus, disk, memoryは必要に応じて増減させてください
   * 末尾の `20.04` はUbuntuのバージョンです
@@ -45,15 +45,26 @@ Apple Silicon(aarch64)にも対応しているため、[Multipass](https://multi
     launch failed: The following errors occurred:
     timed out waiting for initialization to complete
     ```
-* ログインします
+* 進捗は `/var/log/cloud-init-output.log` で確認できます
+  ```sh
+  multipass exec nri-isucon2022 -- tail -f /var/log/cloud-init-output.log
+  ```
+* `multipass shell` でシェルが使えます
   ```sh
   multipass shell isucon11q
   ```
-  * 進捗は以下のコマンドで確認できます
-    ```sh
-    sudo tail -f /var/log/cloud-init-output.log
-    ```
-* 環境の削除は `delete --purge` です
+* 環境の停止再開は stop/start です
+  ```sh
+  multipass stop isucon11q
+  multipass start isucon11q
+  ```
+* ディスクの拡張は同梱のqemu-img(qemu-img-hyperkit)で可能です
+  ```sh
+  multipass stop isucon11q
+  sudo /Library/Application\ Support/com.canonical.multipass/bin/qemu-img-hyperkit resize /var/root/Library/Application\ Support/multipassd/qemu/vault/instances/(インスタンス名)/*.img 30G
+  multipass start isucon11q
+  ```
+* 環境の削除は `multipass delete --purge` です
   ```sh
   multipass delete --purge isucon11q
   ```
