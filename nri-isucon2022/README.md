@@ -23,8 +23,7 @@ nri-isucon2022とほぼ同じ環境を構築するためのcloud-configです。
 * 構築が終わったらベンチマークを実行します
   ```sh
   sudo -i -u isucon
-  cd isubnb/bench/initial-data
-  ../benchmarker
+  TARGET_PORT=80 TargetIpAddr=127.0.0.1 DATA_PATH=/home/isucon/isubnb/bench/initial-data /home/isucon/isubnb/bench/benchmarker
   ```
 
 ## 本来の設定と異なるところ
