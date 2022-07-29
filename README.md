@@ -12,6 +12,7 @@ Apple Silicon(aarch64)にも対応しているため、[Multipass](https://multi
 * 公式
   * [ISUCON10予選](https://github.com/matsuu/cloud-init-isucon/tree/main/isucon10q)
   * [ISUCON11予選](https://github.com/matsuu/cloud-init-isucon/tree/main/isucon11q)
+  * [ISUCON12予選](https://github.com/matsuu/cloud-init-isucon/tree/main/isucon12q)
 * 非公式
   * [Pixiv社内ISUCON2016](https://github.com/matsuu/cloud-init-isucon/tree/main/private-isu)
   * [ISUCON11事前講習](https://github.com/matsuu/cloud-init-isucon/tree/main/isucon11-prior)
@@ -36,10 +37,10 @@ Apple Silicon(aarch64)にも対応しているため、[Multipass](https://multi
 * このリポジトリ内のcfgファイルを手元に用意します
 * cloud-initを使って起動します(isucon11qの例)
   ```sh
-  multipass launch --name isucon11q --cpus 2 --disk 16G --mem 4G --timeout 60 --cloud-init isucon11q.cfg 20.04
+  multipass launch --name isucon12q --cpus 2 --disk 20G --mem 4G --timeout 60 --cloud-init isucon12q.cfg 22.04
   ```
   * cpus, disk, memoryは必要に応じて増減させてください
-  * 末尾の `20.04` はUbuntuのバージョンです
+  * 末尾の `22.04` はUbuntuのバージョンです
   * cloud-initは時間がかかるため以下のようなメッセージが表示される場合がありますが、バックグラウンドで構築は継続しています
     ```
     launch failed: The following errors occurred:
@@ -47,26 +48,20 @@ Apple Silicon(aarch64)にも対応しているため、[Multipass](https://multi
     ```
 * 進捗は `/var/log/cloud-init-output.log` で確認できます
   ```sh
-  multipass exec nri-isucon2022 -- tail -f /var/log/cloud-init-output.log
+  multipass exec isucon12q -- tail -f /var/log/cloud-init-output.log
   ```
 * `multipass shell` でシェルが使えます
   ```sh
-  multipass shell isucon11q
+  multipass shell isucon12q
   ```
 * 環境の停止再開は stop/start です
   ```sh
-  multipass stop isucon11q
-  multipass start isucon11q
-  ```
-* ディスクの拡張は同梱のqemu-img(qemu-img-hyperkit)で可能です
-  ```sh
-  multipass stop isucon11q
-  sudo /Library/Application\ Support/com.canonical.multipass/bin/qemu-img-hyperkit resize /var/root/Library/Application\ Support/multipassd/qemu/vault/instances/(インスタンス名)/*.img 30G
-  multipass start isucon11q
+  multipass stop isucon12q
+  multipass start isucon12q
   ```
 * 環境の削除は `multipass delete --purge` です
   ```sh
-  multipass delete --purge isucon11q
+  multipass delete --purge isucon12q
   ```
 
 ## Others
