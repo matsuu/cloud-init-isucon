@@ -7,9 +7,6 @@ isucon12予選とほぼ同じ環境を構築するためのcloud-configです。
 ## Requirements
 
 * Ubuntu 22.04 LTSを用意してください。
-* ストレージは8GBでは不足します。16GBあれば問題ないと思います。
-* Memoryは1GBだと構築中に不足します。2GB以上あれば問題ないと思います。
-* CPUコア数は少なくても問題ないですが、多ければ構築が早く完了するはずです。
 
 ## Usage
 
@@ -30,6 +27,7 @@ isucon12予選とほぼ同じ環境を構築するためのcloud-configです。
 
 * SSL証明書は自己署名のものを用意しています
 * コンテスト実施時のインスタンスタイプはc5.large(2vCPU, 4GBメモリー)が3台構成です
+* x86\_64でない環境はMySQL公式パッケージがないためDocker内のmysqlはmariadbになっています
 
 ## FAQ
 
@@ -57,7 +55,7 @@ sudo /var/lib/cloud/instance/scripts/runcmd
 multipass info isucon12q
 ```
 
-ブラウザから `https://表示されたIPアドレス/` にアクセスしてみてください。自己署名証明書のためブラウザでエラーが発生します。証明書は `/etc/nginx/certificates/tls-cert.pem` にあるので手元の証明書ストアに登録することで回避できるはずです。
+ブラウザから `https://表示されたIPアドレス/` にアクセスしてみてください。自己署名証明書のためブラウザでエラーが発生します。証明書は `/etc/nginx/tls/fullchain.pem` にあるので手元の証明書ストアに登録することで回避できるはずです。
 
 ### Multipassで作成した環境を削除したい
 
