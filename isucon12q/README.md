@@ -20,7 +20,7 @@ isucon12予選とほぼ同じ環境を構築するためのcloud-configです。
   ```sh
   sudo -i -u isucon
   cd bench
-  ./bench
+  ./bench -target-addr 127.0.0.1:443
   ```
 
 ## 本来の設定と異なるところ
