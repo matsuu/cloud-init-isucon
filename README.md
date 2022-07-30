@@ -73,6 +73,27 @@ AWSはユーザーデータにcloud-initを渡すことができます。
   multipass delete --purge isucon12q
   ```
 
+## FAQ
+
+### isuconユーザもしくはあるべきファイルが存在しない
+
+Multipassやさくらのクラウドでの構築の場合、サーバ起動後も環境構築が続いている可能性があります。
+`/var/log/cloud-init-output.log` で進捗を確認してください。
+
+```sh
+tail -f /var/log/cloud-init-output.log
+```
+
+### 構築の途中でエラーが発生した
+
+ネットワークの状況やスリープモードなどの影響で構築中にエラーが発生した場合は以下のコマンドで再試行ができます。
+
+```sh
+sudo /var/lib/cloud/instance/scripts/runcmd
+```
+
+再試行や環境を一から作り直しても解決しない場合はissueで報告してみてください。
+
 ## Others
 
 * [matsuu/ansible-isucon](https://github.com/matsuu/ansible-isucon)
