@@ -10,6 +10,14 @@ isucon12予選とほぼ同じ環境を構築するためのcloud-configです。
 
 ## Usage
 
+### さくらのクラウドでの利用方法
+
+[トップのREADME](../README.md)をご確認ください。
+
+### AWSでの利用方法
+
+[トップのREADME](../README.md)をご確認ください。
+
 ### Multipassでの利用方法
 
 [トップのREADME](../README.md)をご確認ください。
@@ -55,7 +63,16 @@ sudo /var/lib/cloud/instance/scripts/runcmd
 multipass info isucon12q
 ```
 
-ブラウザから `https://表示されたIPアドレス/` にアクセスしてみてください。自己署名証明書のためブラウザでエラーが発生します。証明書は `/etc/nginx/tls/fullchain.pem` にあるので手元の証明書ストアに登録することで回避できるはずです。
+手元のPCのhostsファイルに以下を追記してください。
+
+```
+${表示されたIPアドレス} admin.t.isucon.dev
+${表示されたIPアドレス} isucon.t.isucon.dev
+${表示されたIPアドレス} kayac.t.isucon.dev
+```
+
+追記したらブラウザから `https://admin.t.isucon.dev/` や `https://isucon.t.isucon.dev/` にアクセスしてみてください。
+アクセスすると証明書エラーが発生する可能性があります。証明書は `/etc/nginx/tls/fullchain.pem` にあるので手元の証明書ストアに登録することで回避できるはずです。
 
 ### Multipassで作成した環境を削除したい
 

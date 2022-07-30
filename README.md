@@ -23,6 +23,15 @@ Apple Silicon(aarch64)にも対応しているため、[Multipass](https://multi
 
 ## Usage
 
+### さくらのクラウドでの利用方法
+
+詳細な手順は[さくらのナレッジ](https://knowledge.sakura.ad.jp/31520/)をご確認ください。
+
+### AWSでの利用方法
+
+AWSはユーザーデータにcloud-initを渡すことができます。
+詳細は[公式ドキュメント](https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/user-data.html#user-data-cloud-init)をご確認ください。
+
 ### Multipassでの利用方法
 
 * [Multipass](https://multipass.run/)実行環境を用意します
