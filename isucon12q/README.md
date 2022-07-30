@@ -10,17 +10,7 @@ isucon12予選とほぼ同じ環境を構築するためのcloud-configです。
 
 ## Usage
 
-### さくらのクラウドでの利用方法
-
-[トップのREADME](../README.md)をご確認ください。
-
-### AWSでの利用方法
-
-[トップのREADME](../README.md)をご確認ください。
-
-### Multipassでの利用方法
-
-[トップのREADME](../README.md)をご確認ください。
+構築手順は[トップのREADME](../README.md)をご確認ください。
 
 ## Bench
 
