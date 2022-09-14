@@ -14,6 +14,7 @@ Apple Silicon(aarch64)にも対応しているため、[Multipass](https://multi
   * [ISUCON11予選](https://github.com/matsuu/cloud-init-isucon/tree/main/isucon11q)
   * [ISUCON11本選](https://github.com/matsuu/cloud-init-isucon/tree/main/isucon11f)
   * [ISUCON12予選](https://github.com/matsuu/cloud-init-isucon/tree/main/isucon12q)
+  * [ISUCON12本選](https://github.com/matsuu/cloud-init-isucon/tree/main/isucon12f)
 * 非公式
   * [Pixiv社内ISUCON2016](https://github.com/matsuu/cloud-init-isucon/tree/main/private-isu)
   * [ISUCON11事前講習](https://github.com/matsuu/cloud-init-isucon/tree/main/isucon11-prior)
@@ -61,6 +62,9 @@ AWSはユーザーデータにcloud-initを渡すことができます。
 
   # isucon12予選の場合
   multipass launch --name isucon12q --cpus 2 --disk 20G --mem 4G --timeout 60 --cloud-init isucon12q/isucon12q.cfg 22.04
+
+  # isucon12本選の場合
+  multipass launch --name isucon12f --cpus 2 --disk 20G --mem 4G --timeout 60 --cloud-init isucon12f/isucon12f.cfg 22.04
   ```
   * cpus, disk, memoryは必要に応じて増減させてください
   * 末尾の `20.04` や `22.04` はUbuntuのバージョンです
