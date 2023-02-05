@@ -52,19 +52,19 @@ AWSはユーザーデータにcloud-initを渡すことができます。
   cd cloud-init-isucon
 
   # isucon10予選の場合
-  multipass launch --name isucon10q --cpus 2 --disk 20G --memory 4G --cloud-init isucon10q/isucon10q.cfg 20.04
+  multipass launch --name isucon10q --cpus 2 --disk 20G --memory 4G --timeout 86400 --cloud-init isucon10q/isucon10q.cfg 20.04
 
   # isucon11予選の場合
-  multipass launch --name isucon11q --cpus 2 --disk 20G --memory 4G --cloud-init isucon11q/isucon11q.cfg 20.04
+  multipass launch --name isucon11q --cpus 2 --disk 20G --memory 4G --timeout 86400 --cloud-init isucon11q/isucon11q.cfg 20.04
 
   # isucon11本選の場合
-  multipass launch --name isucon11f --cpus 2 --disk 20G --memory 4G --cloud-init isucon11f/isucon11f.cfg 20.04
+  multipass launch --name isucon11f --cpus 2 --disk 20G --memory 4G --timeout 86400 --cloud-init isucon11f/isucon11f.cfg 20.04
 
   # isucon12予選の場合
-  multipass launch --name isucon12q --cpus 2 --disk 20G --memory 4G --cloud-init isucon12q/isucon12q.cfg 22.04
+  multipass launch --name isucon12q --cpus 2 --disk 20G --memory 4G --timeout 86400 --cloud-init isucon12q/isucon12q.cfg 22.04
 
   # isucon12本選の場合
-  multipass launch --name isucon12f --cpus 2 --disk 20G --memory 4G --cloud-init isucon12f/isucon12f.cfg 22.04
+  multipass launch --name isucon12f --cpus 2 --disk 20G --memory 4G --timeout 86400 --cloud-init isucon12f/isucon12f.cfg 22.04
   ```
   * cpus, disk, memoryは必要に応じて増減させてください
   * 末尾の `20.04` や `22.04` はUbuntuのバージョンです
