@@ -20,6 +20,13 @@ isucon13とほぼ同じ環境を構築するためのcloud-configです。
   ./bench run
   ```
 
+構築時のタイミングによってpowerdnsの初期化に失敗してベンチマークが正しく実行されない場合があるようです。
+以下を実行することで解消すると思われます。
+
+```sh
+webapp/pdns/init_zone.sh
+```
+
 ## 本来の設定と異なるところ
 
 * 本番ではドメインとして `*.u.isucon.dev` が使われていましたが、[devトップレベルドメインはHSTS preload-listに含まれており](https://ja.wikipedia.org/wiki/.dev)、正規のSSL証明書がないとアクセスできないため `*.u.isucon.local` に書き換えています
