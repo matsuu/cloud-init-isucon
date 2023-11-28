@@ -65,6 +65,9 @@ AWSはユーザーデータにcloud-initを渡すことができます。
 
   # isucon12本選の場合
   multipass launch --name isucon12f --cpus 2 --disk 20G --memory 4G --timeout 86400 --cloud-init isucon12f/isucon12f.cfg 22.04
+
+  # isucon13の場合
+  multipass launch --name isucon13 --cpus 2 --disk 20G --memory 4G --timeout 86400 --cloud-init isucon13/isucon13.cfg 22.04
   ```
   * cpus, disk, memoryは必要に応じて増減させてください
   * 末尾の `20.04` や `22.04` はUbuntuのバージョンです
