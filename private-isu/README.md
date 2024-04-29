@@ -22,7 +22,7 @@ cloud-initに対応した環境にて、アプリケーションサーバをapp.
 * このリポジトリ内の `standalone.cfg` を手元に用意します
 * 以下を実行します
   ```sh
-  multipass launch --name private-isu --cpus 2 --disk 16G --mem 4G --cloud-init standalone.cfg 22.04
+  multipass launch --name private-isu --cpus 2 --disk 16G --memory 4G --cloud-init standalone.cfg 22.04
   ```
   * cpus, disk, memoryは必要に応じて増減させてください
   * cloud-initは時間がかかるためタイムアウトとなるもののバックグラウンドで構築は行われています
