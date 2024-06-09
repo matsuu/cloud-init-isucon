@@ -17,7 +17,7 @@ isucon13とほぼ同じ環境を構築するためのcloud-configです。
 * 構築が終わったらベンチマークを実行します
   ```sh
   sudo -i -u isucon
-  ./bench run
+  ./bench run --enable-ssl
   ```
 
 構築時のタイミングによってpowerdnsの初期化に失敗してベンチマークが正しく実行されない場合があるようです。
