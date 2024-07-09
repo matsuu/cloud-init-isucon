@@ -5,7 +5,7 @@
 [cloud-init](https://cloud-init.io/)に対応した環境で[ISUCON](http://isucon.net/)の過去問を構築するためのcloud-config集です。
 Apple Silicon(aarch64)にも対応しているため、[Multipass](https://multipass.run/)などと組み合わせればM1 Mac上で過去問環境の構築が可能です。
 
-汎用的に作ってるので、cloud-initに対応した環境、例えば[AWS](https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/user-data.html#user-data-cloud-init)、[Azure](https://docs.microsoft.com/ja-jp/azure/virtual-machines/linux/using-cloud-init)、[Google Cloud](https://blog.woohoosvcs.com/2019/11/cloud-init-on-google-compute-engine/)、[Oracle Cloud](https://docs.oracle.com/ja-jp/iaas/Content/Compute/References/images.htm#Oracle__linux-cloud-init)、[さくらのクラウド](https://manual.sakura.ad.jp/cloud/server/cloud-init.html)、[Multipass](https://multipass.run/)、[VMware](https://kb.vmware.com/s/article/59557?lang=ja)など、クラウドからローカルまで[幅広く使える](https://cloudinit.readthedocs.io/en/latest/topics/availability.html)はずです。
+汎用的に作ってるので、cloud-initに対応した環境、例えば[AWS](https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/user-data.html#user-data-cloud-init)、[Azure](https://docs.microsoft.com/ja-jp/azure/virtual-machines/linux/using-cloud-init)、[Google Cloud](https://blog.woohoosvcs.com/2019/11/cloud-init-on-google-compute-engine/)、[Oracle Cloud](https://docs.oracle.com/ja-jp/iaas/Content/Compute/References/images.htm#Oracle__linux-cloud-init)、[さくらのクラウド](https://manual.sakura.ad.jp/cloud/server/cloud-init.html)、[Multipass](https://multipass.run/)、[OrbStack](https://orbstack.dev/)、[VMware](https://kb.vmware.com/s/article/59557?lang=ja)など、クラウドからローカルまで[幅広く使える](https://cloudinit.readthedocs.io/en/latest/topics/availability.html)はずです。
 
 ### cloud-config
 
@@ -33,6 +33,42 @@ Apple Silicon(aarch64)にも対応しているため、[Multipass](https://multi
 
 AWSはユーザーデータにcloud-initを渡すことができます。
 詳細は[公式ドキュメント](https://docs.aws.amazon.com/ja_jp/AWSEC2/latest/UserGuide/user-data.html#user-data-cloud-init)をご確認ください。
+
+### OrbStackでの利用方法
+
+* [OrbStack](https://orbstack.dev/)実行環境を用意します
+  ```sh
+  brew install orbstack
+  ```
+* このリポジトリ内のcfgファイルを手元に用意します
+* cloud-initを使って起動します
+  ```sh
+  git clone https://github.com/matsuu/cloud-init-isucon.git
+  cd cloud-init-isucon
+
+  # isucon10予選の場合
+  orbctl create -u isucon -c isucon10q/isucon10q.cfg ubuntu:focal isucon10q
+
+  # isucon11予選の場合
+  orbctl create -u isucon -c isucon11q/isucon11q.cfg ubuntu:focal isucon11q
+
+  # isucon11本選の場合
+  orbctl create -u isucon -c isucon11f/isucon11f.cfg ubuntu:focal isucon11f
+
+  # isucon12予選の場合
+  orbctl create -u isucon -c isucon12q/isucon12q.cfg ubuntu:jammy isucon12q
+
+  # isucon12本選の場合
+  orbctl create -u isucon -c isucon12f/isucon12f.cfg ubuntu:jammy isucon12f
+
+  # isucon13の場合
+  orbctl create -u isucon -c isucon13/isucon13.cfg ubuntu:jammy isucon13
+  ```
+* orbでログインできます。ログイン後はcdを実行してホームディレクトリに移動してください
+  ```sh
+  orb
+  cd
+  ```
 
 ### Multipassでの利用方法
 
