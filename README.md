@@ -42,11 +42,12 @@ AWSはユーザーデータにcloud-initを渡すことができます。
   brew install orbstack
   ```
 * このリポジトリ内のcfgファイルを手元に用意します
-* cloud-initを使って起動します
   ```sh
   git clone https://github.com/matsuu/cloud-init-isucon.git
   cd cloud-init-isucon
-
+  ```
+* cloud-initを使って起動します
+  ```sh
   # isucon10予選の場合
   orbctl create -u isucon -c isucon10q/isucon10q.cfg ubuntu:focal isucon10q
 
@@ -83,11 +84,12 @@ AWSはユーザーデータにcloud-initを渡すことができます。
   winget.exe install Multipass
   ```
 * このリポジトリ内のcfgファイルを手元に用意します
-* cloud-initを使って起動します
   ```sh
   git clone https://github.com/matsuu/cloud-init-isucon.git
   cd cloud-init-isucon
-
+  ```
+* cloud-initを使って起動します
+  ```sh
   # isucon10予選の場合
   multipass launch --name isucon10q --cpus 2 --disk 20G --memory 4G --timeout 86400 --cloud-init isucon10q/isucon10q.cfg 20.04
 
