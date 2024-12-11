@@ -16,6 +16,7 @@ Apple Silicon(aarch64)にも対応しているため、[Multipass](https://multi
   * [ISUCON12予選](https://github.com/matsuu/cloud-init-isucon/tree/main/isucon12q)
   * [ISUCON12本選](https://github.com/matsuu/cloud-init-isucon/tree/main/isucon12f)
   * [ISUCON13](https://github.com/matsuu/cloud-init-isucon/tree/main/isucon13)
+  * [ISUCON14](https://github.com/matsuu/cloud-init-isucon/tree/main/isucon14)
 * 非公式
   * [Pixiv社内ISUCON2016](https://github.com/matsuu/cloud-init-isucon/tree/main/private-isu)
   * [ISUCON11事前講習](https://github.com/matsuu/cloud-init-isucon/tree/main/isucon11-prior)
@@ -65,6 +66,9 @@ AWSはユーザーデータにcloud-initを渡すことができます。
 
   # isucon13の場合
   orbctl create -u isucon -c isucon13/isucon13.cfg ubuntu:jammy isucon13
+
+  # isucon14の場合
+  orbctl create -u isucon -c isucon14/isucon14.cfg ubuntu:noble isucon14
   ```
 * orbでログインできます。ログイン後はcdを実行してホームディレクトリに移動してください
   ```sh
@@ -107,9 +111,12 @@ AWSはユーザーデータにcloud-initを渡すことができます。
 
   # isucon13の場合
   multipass launch --name isucon13 --cpus 2 --disk 20G --memory 4G --timeout 86400 --cloud-init isucon13/isucon13.cfg 22.04
+
+  # isucon14の場合
+  multipass launch --name isucon14 --cpus 2 --disk 20G --memory 4G --timeout 86400 --cloud-init isucon14/isucon14.cfg 24.04
   ```
   * cpus, disk, memoryは必要に応じて増減させてください
-  * 末尾の `20.04` や `22.04` はUbuntuのバージョンです
+  * 末尾の `20.04` や `22.04` や `24.04` はUbuntuのバージョンです
   * cloud-initは時間がかかるため以下のようなメッセージが表示される場合がありますが、バックグラウンドで構築は継続しています
     ```
     launch failed: The following errors occurred:
