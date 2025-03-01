@@ -6,7 +6,7 @@ catatsuy/private-isuの環境を構築するためのcloud-configです。
 
 ## Requirements
 
-* Ubuntu 22.04 LTSを用意してください。
+* Ubuntu 24.04 LTSを用意してください。
 * ストレージは8GBでは不足します。16GBあれば問題ないと思います。
 * Memoryは1GBだと構築中に不足します。2GB以上あれば問題ないと思います。
 * CPUコア数は少なくても問題ないですが、多ければ構築が早く完了するはずです。
@@ -22,7 +22,7 @@ cloud-initに対応した環境にて、アプリケーションサーバをapp.
 * このリポジトリ内の `standalone.cfg` を手元に用意します
 * 以下を実行します
   ```sh
-  multipass launch --name private-isu --cpus 2 --disk 16G --memory 4G --cloud-init standalone.cfg 22.04
+  multipass launch --name private-isu --cpus 2 --disk 16G --memory 4G --cloud-init standalone.cfg 24.04
   ```
   * cpus, disk, memoryは必要に応じて増減させてください
   * cloud-initは時間がかかるためタイムアウトとなるもののバックグラウンドで構築は行われています
