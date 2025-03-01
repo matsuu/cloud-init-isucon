@@ -11,10 +11,37 @@ catatsuy/private-isuの環境を構築するためのcloud-configです。
 * Memoryは1GBだと構築中に不足します。2GB以上あれば問題ないと思います。
 * CPUコア数は少なくても問題ないですが、多ければ構築が早く完了するはずです。
 
-
 ## Usage
 
-cloud-initに対応した環境にて、アプリケーションサーバをapp.cfg、ベンチマーカーをbenchmarker.cfgにて構築します。
+cloud-initに対応した環境にて、 `*.cfg` を用いて構築します。
+
+| 用途 | cfg |
+| --- | --- |
+| 競技者用 | app.cfg |
+| ベンチマーカー | benchmarker.cfg |
+| 競技者用とベンチマーカーを同居 |  standalone.cfg |
+
+### OrbStackでの利用方法
+
+* [OrbStack](https://orbstack.dev/)実行環境を用意します
+  ```sh
+  brew install orbstack
+  ```
+* このリポジトリ内のcfgファイルを手元に用意します
+  ```sh
+  git clone https://github.com/matsuu/cloud-init-isucon.git
+  cd cloud-init-isucon/private-isu
+  ```
+* cloud-initを使って起動します
+  ```sh
+  # isucon14の場合
+  orbctl create -u isucon -c standalone.cfg ubuntu:noble private-isu
+  ```
+* orbでログインできます。ログイン後はcdを実行してホームディレクトリに移動してください
+  ```sh
+  orb
+  cd
+  ```
 
 ### Multipassでの利用方法
 
@@ -43,8 +70,10 @@ cloud-initに対応した環境にて、アプリケーションサーバをapp.
 
 ```sh
 cd /home/isucon/private_isu.git/benchmarker
-./bin/benchmarker -u ./userdata -t http://{競技用インスタンスのIPアドレス}/
+./bin/benchmarker -u ./userdata -t http://{競技用のIPアドレス}/
 ```
+
+standalone.cfgで構築した場合の競技用のIPアドレスは `127.0.0.1` で実行が可能です。
 
 ## その他の情報
 
